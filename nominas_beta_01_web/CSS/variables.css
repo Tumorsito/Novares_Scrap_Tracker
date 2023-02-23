@@ -1,0 +1,20 @@
+/* >>> >>> >>> >>> >>> Variables <<< <<< <<< <<< <<< */
+:root {
+    --first-color: #171010;
+    --second-color: #362222;
+    --third-color: #2B2B2B;
+    --fourth-color: #423F3E;
+
+    --title1: 1.5rem;
+    --title2: 1.2rem;
+    
+    --subtitle1: 1.2rem;
+    --subtitle2: 1rem;
+
+    --text1: 1rem;
+    --text2: 0.8rem;
+}
+
+html {
+    font-size: 16px;
+}

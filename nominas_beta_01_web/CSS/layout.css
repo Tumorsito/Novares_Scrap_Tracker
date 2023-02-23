@@ -1,0 +1,43 @@
+/* >>> >>> >>> >>> >>> mainContainer <<< <<< <<< <<< <<< */
+.mainContainer-structure {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1fr;
+    grid-template-areas: "header" "body";
+    height: 100vh;
+    width: 100vw;
+}
+
+.mainContainer-skin {
+    background-color: var(--fourth-color);
+    font-family: 'Tilt Neon', cursive;
+}
+
+/* >>> >>> >>> >>> >>> headerContainer <<< <<< <<< <<< <<< */
+.headerContainer-structure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: header;
+}
+
+.headerContainer-skin {
+    background-color: var(--second-color);
+    
+}
+
+
+/* >>> >>> >>> >>> >>> bodyContainer <<< <<< <<< <<< <<< */
+.bodyContainer-structure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: body;
+}
+
+.bodyContainer-skin {
+    background-color: var(--fourth-color);
+    border-top: 2px solid black;
+}

@@ -1,0 +1,85 @@
+/* >>> >>> >>> >>> >>> title1 <<< <<< <<< <<< <<< */
+.title1-structure {
+    
+}
+
+.title1-skin {
+    
+}
+
+/* >>> >>> >>> >>> >>> title2 <<< <<< <<< <<< <<< */
+.title2-structure {
+    
+}
+
+.title2-skin {
+    
+}
+
+/* >>> >>> >>> >>> >>> subtitle1 <<< <<< <<< <<< <<< */
+.subtitle1-structure {
+    
+}
+
+.subtitle1-skin {
+    
+}
+
+/* >>> >>> >>> >>> >>> subtitle2 <<< <<< <<< <<< <<< */
+.subtitle2-structure {
+    
+}
+
+.subtitle2-skin {
+    
+}
+
+/* >>> >>> >>> >>> >>> text1 <<< <<< <<< <<< <<< */
+.text1-structure {
+    
+}
+
+.text1-skin {
+    
+}
+
+/* >>> >>> >>> >>> >>> text2 <<< <<< <<< <<< <<< */
+.text2-structure {
+    font-size: var(--text2);
+}
+
+.text2-skin {
+    
+}
+
+/* >>> >>> >>> >>> >>> login <<< <<< <<< <<< <<< */
+.login-structure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    height: 80%;
+    width: 30%;
+}
+
+.login-skin {
+    background-color: var(--first-color);
+    border: solid 2px black;
+    color: var(--fourth-color);
+    text-shadow: 1px 1px 1px black;
+}
+
+/* >>> >>> >>> >>> >>> siteLogo <<< <<< <<< <<< <<< */
+.siteLogo-structure {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.siteLogo-skin {
+    background-image: url(../IMG/logo-novares.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
