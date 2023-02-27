@@ -1,9 +1,9 @@
 /* >>> >>> >>> >>> >>> Variables <<< <<< <<< <<< <<< */
 :root {
-    --first-color: #171010;
-    --second-color: #362222;
-    --third-color: #2B2B2B;
-    --fourth-color: #423F3E;
+    --first-color: #000000;
+    --second-color: #3BACB6;
+    --third-color: #82DBD8;
+    --fourth-color: #ffffff;
 
     --title1: 1.5rem;
     --title2: 1.2rem;
