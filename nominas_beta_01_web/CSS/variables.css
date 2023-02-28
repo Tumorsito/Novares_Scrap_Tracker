@@ -13,6 +13,9 @@
 
     --text1: 1rem;
     --text2: 0.8rem;
+
+    --selection-color: #000000;
+    --selection-background: #ffffff;
 }
 
 html {
