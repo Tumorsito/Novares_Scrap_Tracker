@@ -80,3 +80,20 @@
     background-color: var(--selection-background);
     color: var(--selection-color);
 }
+
+/* >>> >>> >>> >>> >>> loginTitle <<< <<< <<< <<< <<< */
+.loginTitle-structure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.loginTitle-skin {
+    cursor: pointer;
+}
+
+.loginTitle-skin *:hover{
+    color: #000;
+    text-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff;
+}
