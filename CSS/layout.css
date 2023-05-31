@@ -19,8 +19,9 @@
     justify-content: center;
     align-items: center;
     grid-area: body;
+    overflow: hidden;
 }
 
 .bodyContainer-skin {
-    background-color: var(--first-color);
+    background-color: transparent;
 }

@@ -1,3 +1,14 @@
+/* >>> >>> >>> >>> >>> backgroundVideo <<< <<< <<< <<< <<< */
+.backgroundVideo-structure {
+    max-width: 100%;
+    z-index: -1;
+}
+
+.backgroundVideo-skin {
+    
+}
+
+
 /* >>> >>> >>> >>> >>> login <<< <<< <<< <<< <<< */
 .login-structure {
     display: flex;
@@ -6,20 +17,47 @@
     align-items: center;
     height: 50%;
     width: 20%;
+    position: absolute;
+    padding-bottom: 10px;
 }
 
 .login-skin {
-    background-color: var(--first-color);
+    background-color: transparent;
     border: solid 2px var(--fourth-color);
     color: var(--fourth-color);
     letter-spacing: 0.2rem;
-    border-radius: 1rem;
     text-decoration-color: var(--fourth-color);
-    box-shadow: #fff 0px 0px 10px 0px;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+/* >>> >>> >>> >>> >>> novaresTitle <<< <<< <<< <<< <<< */
+.novaresTitle-structure {
+    width: 100%;
+    height: 30px;
+    margin: 0;
+}
+
+.novaresTitle-skin {
+    background-image: url("../IMG/novareslogo.png");
+    background-position: center;
+    background-size: cover;
+}
+
+/* >>> >>> >>> >>> >>> loginTitle <<< <<< <<< <<< <<< */
+.loginTitle-structure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.loginTitle-skin {
+    cursor: pointer;
+}
+
+.loginTitle-skin *:hover{
+    color: #000;
+    text-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff;
 }
 
 /* >>> >>> >>> >>> >>> button <<< <<< <<< <<< <<< */
@@ -30,14 +68,9 @@
     height: 2rem;
     width: 10rem;
     border: solid 2px var(--fourth-color);
-    border-radius: 1rem;
     background-color: var(--first-color);
     color: var(--fourth-color);
     letter-spacing: 0.2rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
 }
 
 .button-skin {
@@ -60,13 +93,8 @@
 
 .inputText-skin {
     border: solid 2px var(--fourth-color);
-    border-radius: 1rem;
     background-color: var(--first-color);
     color: var(--fourth-color);
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
     text-align: center;
     text-decoration-color: var(--fourth-color);
     -moz-text-decoration-color: var(--fourth-color);
@@ -81,19 +109,4 @@
     color: var(--selection-color);
 }
 
-/* >>> >>> >>> >>> >>> loginTitle <<< <<< <<< <<< <<< */
-.loginTitle-structure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
 
-.loginTitle-skin {
-    cursor: pointer;
-}
-
-.loginTitle-skin *:hover{
-    color: #000;
-    text-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff;
-}
