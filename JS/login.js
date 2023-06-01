@@ -38,7 +38,9 @@ inputs.forEach(input => {
     document.documentElement.style.setProperty('--selection-background', '#ffffff');
   });
 
-  
 });
 
-
+/* >>> >>> >>> >>> >>> Preloader <<< <<< <<< <<< <<< */
+let preloader = document.getElementById('preloader-container');
+let ocultarPreloader = () => preloader.style.display = "none";
+window.addEventListener("load", ocultarPreloader);
