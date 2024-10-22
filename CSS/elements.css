@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 30%;
+    height: 70%;
     position: absolute;
     padding-bottom: 10px;
     margin: 15px 0;
@@ -17,11 +17,12 @@
 
 .login-skin {
     background-color: rgba(28, 60, 90, 0.5);
-    border: none;
+    border: solid 2px var(--fourth-color);
     color: var(--fourth-color);
     letter-spacing: 0.2rem;
     text-decoration-color: var(--fourth-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000;
 }
 
 /* >>> >>> >>> >>> >>> novaresTitle <<< <<< <<< <<< <<< */
@@ -33,9 +34,10 @@
 }
 
 .novaresTitle-skin {
-    background-image: url("../IMG/novareslogo.png");
+    background-image: url("../Media/novareslogo.png");
     background-position: center;
     background-size: cover;
+    cursor: pointer;
 }
 
 /* >>> >>> >>> >>> >>> loginTitle <<< <<< <<< <<< <<< */
@@ -48,6 +50,7 @@
 
 .loginTitle-skin {
     cursor: pointer;
+    text-shadow: 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000;
 }
 
 .loginTitle-skin *:hover{
@@ -104,4 +107,135 @@
     color: var(--selection-color);
 }
 
+/* >>> >>> >>> >>> >>> header <<< <<< <<< <<< <<< */
+.header-structure {
+    width: 100%;
+    height: 8rem;
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+}
 
+.header-skin {
+    background-color: rgba(28, 60, 90, 0.7);
+    color: var(--fourth-color);
+    border-bottom: 0.1em solid var(--fourth-color);
+}
+
+
+/* >>> >>> >>> >>> >>> article <<< <<< <<< <<< <<< */
+.article-structure {
+    width: 100%;
+    height: 5fr;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-skin {
+}
+
+/* >>> >>> >>> >>> >>> novaresTitle <<< <<< <<< <<< <<< */
+.novaresTitle2-structure {
+    width: 100%;
+    max-width: 500px;
+    height: 80%;
+    margin: 0;
+}
+
+.novaresTitle2-skin {
+    background-image: url("../Media/novareslogo.png");
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+/* >>> >>> >>> >>> >>> employeeInfo <<< <<< <<< <<< <<< */
+.employeeInfo-structure {
+    letter-spacing: 0.2rem;
+}
+
+.employeeInfo-skin {
+    color: var(--fourth-color);
+    text-shadow: 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000;
+}
+
+/* >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< */
+.nomina-structure {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    height: 15%;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.nomina-skin {
+    border: solid 2px var(--fourth-color);
+    background-color: rgba(28, 60, 90, 0.7);
+    color: var(--fourth-color);
+    text-align: center;
+    text-decoration-color: var(--fourth-color);
+    -moz-text-decoration-color: var(--fourth-color);
+    font-size: 1.5rem;
+    text-shadow: 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000;
+}
+
+/* >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< */
+.download-structure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px var(--fourth-color);
+    background-color: var(--first-color);
+    color: var(--fourth-color);
+    letter-spacing: 0.2rem;
+    padding: 0.5rem;
+}
+
+.download-skin {
+    cursor: pointer;
+}
+
+.download-skin:hover {
+    box-shadow: #fff 0px 0px 10px 0px;
+}
+
+/* >>> >>> >>> >>> >>> background2 <<< <<< <<< <<< <<< */
+.background2-structure {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    
+}
+
+.background2-skin {
+    
+}
+
+/* >>> >>> >>> >>> >>> endSession <<< <<< <<< <<< <<< */
+.endSession-structure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px var(--fourth-color);
+    background-color: var(--first-color);
+    color: var(--fourth-color);
+    letter-spacing: 0.2rem;
+    padding: 0.5rem;
+}
+
+.endSession-skin {
+    cursor: pointer;
+}
+
+.endSession-skin:hover {
+    box-shadow: #fff 0px 0px 10px 0px;
+}

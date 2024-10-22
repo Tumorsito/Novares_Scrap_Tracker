@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css" /> 
     <link rel="stylesheet" href="CSS/variables.css">
     <link rel="stylesheet" href="CSS/preloader.css">
     <link rel="stylesheet" href="CSS/layout.css">
     <link rel="stylesheet" href="CSS/elements.css">
     <link rel="stylesheet" href="CSS/responsive.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="CSS/background.css">
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-
+    
     <title>Nominas Novares</title>
 </head>
 
@@ -31,22 +32,16 @@
         <!-- >>> >>> >>> >>> >>> bodyContainer <<< <<< <<< <<< <<< -->
         <div class="bodyContainer-structure bodyContainer-skin">
 
-            <!-- >>> >>> >>> >>> >>> Background <<< <<< <<< <<< <<< -->
-            <div class="ripple-background">
-                <div class="circle xxlarge shade1"></div>
-                <div class="circle xlarge shade2"></div>
-                <div class="circle large shade3"></div>
-                <div class="circle mediun shade4"></div>
-                <div class="circle small shade5"></div>
-              </div>
+            <!-- >>> >>> >>> >>> >>> background <<< <<< <<< <<< <<< -->
+            <video class="background-structure background-skin" autoplay muted loop>
+                <source src="Media/homepage_bg_video.mp4" type="video/mp4">
+            </video>
 
-            <!-- >>> >>> >>> >>> >>> login <<< <<< <<< <<< <<< -->
-            <form class="login-structure login-skin">
+            <!-- >>> >>> >>> >>> >>> login form post async no reload<<< <<< <<< <<< <<< -->
+            <div class="login-structure login-skin">
 
                 <!-- >>> >>> >>> >>> >>> novaresTitle <<< <<< <<< <<< <<< -->
-                <div class="novaresTitle-structure novaresTitle-skin">
-                    
-                </div>
+                <div class="novaresTitle-structure novaresTitle-skin"></div>
                 
                 <!-- >>> >>> >>> >>> >>> loginTitle <<< <<< <<< <<< <<< -->
                 <div class="loginTitle-structure loginTitle-skin">
@@ -54,21 +49,111 @@
                 </div>
 
                 <!-- >>> >>> >>> >>> >>> inputText <<< <<< <<< <<< <<< -->
-                <input placeholder="Nº Empleado" type="text" id="username" name="username" class="inputText-structure inputText-skin" required>
+                <input placeholder="Nº Empleado" type="text" id="numEmpleado" name="username" class="inputText-structure inputText-skin" required>
                     
                 <!-- >>> >>> >>> >>> >>> inputText <<< <<< <<< <<< <<< -->
-                <input placeholder="RFC" type="password" id="password" name="password" class="inputText-structure inputText-skin" required>
+                <input placeholder="RFC" type="password" id="rfc" name="password" class="inputText-structure inputText-skin" required>
 
                 <!-- >>> >>> >>> >>> >>> button <<< <<< <<< <<< <<< -->
-                <button type="submit" class="button-structure button-skin">Iniciar Sesión</button>
+                <button class="button-structure button-skin">Confirmar</button>
                 
-            </form>
+            </div>
+
+            <!-- >>> >>> >>> >>> >>> logged header <<< <<< <<< <<< <<< -->
+            <div class="header-structure header-skin">
+
+                <!-- >>> >>> >>> >>> >>> novaresTitle2 <<< <<< <<< <<< <<< -->
+                <div class="novaresTitle2-structure novaresTitle2-skin"></div>
+
+                <!-- >>> >>> >>> >>> >>> employeeInfo <<< <<< <<< <<< <<< -->
+                <h2 class="employeeInfo-structure employeeInfo-skin">Leonel Rivera Hernandez: 181451</h2>
+
+                <!-- >>> >>> >>> >>> >>> end session <<< <<< <<< <<< <<< <<< -->
+                <button class="endSession-structure endSession-skin">Cerrar Sesion</button>
+
+            </div>
+
+            <!-- >>> >>> >>> >>> >>> logged article <<< <<< <<< <<< <<< -->
+            <div class="article-structure article-skin">
+
+                <!-- >>> >>> >>> >>> >>> background2 <<< <<< <<< <<< <<< -->
+                <video class="background2-structure background2-skin" autoplay muted loop>
+                    <source src="Media/homepage_bg_video.mp4" type="video/mp4">
+                </video>
+
+                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
+                <div class="nomina-structure nomina-skin">
+
+                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
+                    <div class="week-structure week-skin">Año: 2024 - Semana: 52</div>
+
+                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
+                    <button class="download-structure download-skin">Nomina_181451_W52.pdf</button>
+
+                </div>
+
+                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
+                <div class="nomina-structure nomina-skin">
+
+                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
+                    <div class="week-structure week-skin">Año: 2024 - Semana: 51</div>
+
+                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
+                    <button class="download-structure download-skin">Nomina_181451_W51.pdf</button>
+
+                </div>
+
+                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
+                <div class="nomina-structure nomina-skin">
+
+                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
+                    <div class="week-structure week-skin">Año: 2024 - Semana: 50</div>
+
+                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
+                    <button class="download-structure download-skin">Nomina_181451_W50.pdf</button>
+
+                </div>
+
+                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
+                <div class="nomina-structure nomina-skin">
+
+                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
+                    <div class="week-structure week-skin">Año: 2024 - Semana: 49</div>
+
+                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
+                    <button class="download-structure download-skin">Nomina_181451_W49.pdf</button>
+
+                </div>
+
+                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
+                <div class="nomina-structure nomina-skin">
+
+                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
+                    <div class="week-structure week-skin">Año: 2024 - Semana: 48</div>
+
+                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
+                    <button class="download-structure download-skin">Nomina_181451_W48.pdf</button>
+
+                </div>
+
+                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
+                <div class="nomina-structure nomina-skin">
+
+                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
+                    <div class="week-structure week-skin">Año: 2024 - Semana: 47</div>
+
+                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
+                    <button class="download-structure download-skin">Nomina_181451_W47.pdf</button>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="JS/login.js"></script>
 </body>

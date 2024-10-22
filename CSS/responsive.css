@@ -1,7 +1,7 @@
 .login-skin {
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
     /* >>> >>> >>> >>> >>> login <<< <<< <<< <<< <<< */
     .login-structure {
         width: 100%;
@@ -28,5 +28,13 @@
         max-width: 500px;
         height: 15%;
         margin: 0;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    /* >>> >>> >>> >>> >>> login <<< <<< <<< <<< <<< */
+    .login-structure {
+        width: 20%;
+        height: 60%;
     }
 }
