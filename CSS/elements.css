@@ -1,3 +1,45 @@
+/* Tablas de lista de línea y lista general ocupan casi todo el ancho */
+.lineMenu-structure table,
+.listaGeneral-structure table {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    margin: 0 auto;
+}
+/* Reducir espaciado entre letras en tablas de lista de línea y lista general */
+.lineMenu-structure table th,
+.lineMenu-structure table td,
+.listaGeneral-structure table th,
+.listaGeneral-structure table td {
+    letter-spacing: 0.01em !important;
+}
+/* Layout flex vertical para menús de línea y lista general */
+.lineMenu-flex-col {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+        justify-content: space-around;
+}
+.lineMenu-flex-header {
+    flex: 0 0 15%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lineMenu-flex-list {
+    flex: 1 1 70%;
+    min-height: 0;
+    overflow-y: auto;
+}
+.lineMenu-flex-footer {
+    flex: 0 0 10%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 /* >>> >>> >>> >>> >>> line menu scroll y lista full width <<< <<< <<< <<< <<< */
 .lineMenu-structure {
     overflow-y: auto;
@@ -10,6 +52,7 @@
     padding-right: 8px;
     max-height: 55vh;
     overflow-y: auto;
+    margin-bottom: 0;
 }
 
 .lineMenu-list li {
@@ -41,7 +84,7 @@
 }
 
 .lineMenu-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     text-align: center;
@@ -51,7 +94,7 @@
 }
 
 .lineMenu-counter {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -62,7 +105,7 @@
 .lineMenu-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 18px 0;
+    margin: 0;
 }
 
 .lineMenu-list li {
@@ -71,16 +114,16 @@
     justify-content: space-between;
     background: rgba(0,0,0,0.15);
     border-radius: 8px;
-    margin-bottom: 10px;
-    padding: 10px 12px;
-    font-size: 1.1rem;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    font-size: 1rem;
     text-transform: uppercase;
     color: var(--fourth-color);
 }
 
 .lineMenu-piece-controls {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 
 /* Unificar botones: todos usan .button-structure y .button-skin */
@@ -88,8 +131,8 @@
 .lineMenu-buttons .button-structure,
 .mainMenuButtons-skin .button-structure,
 .button-structure {
-    font-size: 1rem;
-    padding: 2px 10px;
+    font-size: 0.95rem;
+    padding: 1px 8px;
     border-radius: 8px;
     border: 2px solid var(--fourth-color);
     background: var(--first-color);
@@ -160,8 +203,8 @@
 }
 
 .mainMenuButtons-skin .button-structure {
-    width: 14rem;
-    font-size: 1.2rem;
+    width: 13rem;
+    font-size: 1.1rem;
     font-weight: 600;
     background-color: var(--first-color);
     color: var(--fourth-color);

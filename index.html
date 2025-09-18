@@ -62,28 +62,28 @@
 
             <!-- >>> >>> >>> >>> >>> SUBMENÚ DE LÍNEA <<< <<< <<< <<< <<< -->
             <div class="lineMenu-structure lineMenu-skin" style="display:none;">
-                <!-- Título de la línea seleccionada -->
-                <h2 class="lineMenu-title">LÍNEA: <span id="lineaSeleccionadaTitulo"></span></h2>
-
-                <!-- Contador total de piezas -->
-                <div class="lineMenu-counter">TOTAL PIEZAS: <span id="contadorPiezas">0</span></div>
-
-                <!-- Lista de piezas -->
-                <ul class="lineMenu-list" id="listaPiezas"></ul>
-
-                <!-- Botones de navegación -->
-                <div class="lineMenu-buttons">
-                    <div style="display:flex; flex-direction:column; align-items:center; gap:6px; width:100%;">
-                        <button class="button-structure button-skin" id="verListaBtn">VER LISTA</button>
-                        <button class="button-structure button-skin" id="volverBtn">VOLVER</button>
-                    </div>
-                </div>
+                                <div class="lineMenu-flex-col">
+                                    <div class="lineMenu-flex-header">
+                                        <h2 class="lineMenu-title">LÍNEA: <span id="lineaSeleccionadaTitulo"></span></h2>
+                                        <div class="lineMenu-counter">TOTAL PIEZAS: <span id="contadorPiezas">0</span></div>
+                                    </div>
+                                    <ul class="lineMenu-list" id="listaPiezas"></ul>
+                                    <div class="lineMenu-buttons lineMenu-flex-footer">
+                                        <div style="display:flex; flex-direction:row; align-items:center; justify-content:center; gap:16px; width:100%;">
+                                                <button class="button-structure button-skin" id="verListaBtn" style="height:2.5rem; min-width:11rem;">VER LISTA</button>
+                                                <button class="button-structure button-skin" id="volverBtn" style="height:2.5rem; min-width:11rem;">VOLVER</button>
+                                        </div>
+                                    </div>
+                                </div>
             </div>
 
             <!-- >>> >>> >>> >>> >>> LISTA GENERAL <<< <<< <<< <<< <<< -->
             <div class="lineMenu-structure lineMenu-skin" id="listaGeneralMenu" style="display:none;">
-                <h2 class="lineMenu-title">LISTA GENERAL</h2>
-                <div class="lineMenu-list" style="width:100%; max-width:none;">
+                <div class="lineMenu-flex-col">
+                  <div class="lineMenu-flex-header">
+                    <h2 class="lineMenu-title">LISTA GENERAL</h2>
+                  </div>
+                  <div class="lineMenu-list lineMenu-flex-list" style="width:100%; max-width:none;">
                     <table style="width:100%; border-collapse:collapse; color:var(--fourth-color); background:transparent;">
                         <thead>
                             <tr style="background:rgba(255,255,255,0.08);">
@@ -111,13 +111,14 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="lineMenu-buttons" style="margin-top:20px;">
-                    <div style="display:flex; flex-direction:column; align-items:center; gap:6px; width:100%;">
-                        <button class="button-structure button-skin" id="exportarFotoBtn" style="height:3.2rem;">EXPORTAR COMO FOTO</button>
-                        <button class="button-structure button-skin" id="vaciarListaBtn">VACIAR LISTA</button>
-                        <button class="button-structure button-skin" id="volverListaBtn">VOLVER</button>
+                  </div>
+                  <div class="lineMenu-buttons lineMenu-flex-footer">
+                    <div style="display:flex; flex-direction:row; align-items:center; justify-content:center; gap:16px; width:100%;">
+                        <button class="button-structure button-skin" id="exportarFotoBtn" style="height:2.5rem;">EXPORTAR</button>
+                        <button class="button-structure button-skin" id="vaciarListaBtn" style="height:2.5rem;">VACIAR LISTA</button>
+                        <button class="button-structure button-skin" id="volverListaBtn" style="height:2.5rem;">VOLVER</button>
                     </div>
+                  </div>
                 </div>
             </div>
 

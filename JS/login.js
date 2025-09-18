@@ -151,47 +151,79 @@ function renderizarPiezas(linea) {
   let piezas = getPiezasLinea(linea.toUpperCase());
   let total = piezas.reduce((acc, p) => acc + p.cantidad, 0);
   contadorPiezas.textContent = total;
-  listaPiezas.innerHTML = "";
+  // Generar tabla con columnas: Nombre, No. Parte, Cantidad, Editar
+  let tabla = document.createElement('table');
+  tabla.style.width = '100%';
+  tabla.style.borderCollapse = 'collapse';
+  tabla.style.color = 'var(--fourth-color)';
+  tabla.style.background = 'transparent';
+  let thead = document.createElement('thead');
+  thead.innerHTML = `
+    <tr style="background:rgba(255,255,255,0.08);">
+      <th style="padding:6px; border-bottom:1px solid var(--fourth-color); text-align:left;">Nombre</th>
+      <th style="padding:6px; border-bottom:1px solid var(--fourth-color); text-align:left;">No. Parte</th>
+      <th style="padding:6px; border-bottom:1px solid var(--fourth-color); text-align:left;">Cantidad</th>
+      <th style="padding:6px; border-bottom:1px solid var(--fourth-color); text-align:center;">Editar</th>
+    </tr>
+  `;
+  tabla.appendChild(thead);
+  let tbody = document.createElement('tbody');
   piezas.forEach((pieza, idx) => {
-    let li = document.createElement('li');
-        li.innerHTML = `
-          <span>${pieza.nombre}</span>
-            <div style="display:inline-flex; align-items:center; gap:10px; float:right; margin:0;">
-              <span style="font-weight:bold; color:#fff; min-width:24px; text-align:center;">${pieza.cantidad}</span>
-              <div class="lineMenu-piece-controls" style="display:inline-flex; gap:5px; margin:0;">
-                <input type="number" min="1" value="1" style="width:45px; text-align:center; font-size:1rem;">
-                <button data-accion="agregar" data-idx="${idx}" style="text-align:center; display:flex; align-items:center; justify-content:center;">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0;">
-                    <rect x="7" y="3" width="4" height="12" rx="2" fill="#fff"/>
-                    <rect x="3" y="7" width="12" height="4" rx="2" fill="#fff"/>
-                  </svg>
-                </button>
-                <button data-accion="eliminar" data-idx="${idx}" style="text-align:center; display:flex; align-items:center; justify-content:center;">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0;">
-                    <rect x="3" y="7" width="12" height="4" rx="2" fill="#fff"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-        `;
-    listaPiezas.appendChild(li);
+    // Separar nombre y no. parte
+    let nombre = pieza.nombre;
+    let noParte = '';
+    let match = nombre.match(/\(([^)]+)\)$/);
+    if (match) {
+      noParte = match[1];
+      nombre = nombre.replace(/\s*\([^)]+\)$/, '');
+    }
+    let tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="padding:6px; text-align:left;">${nombre}</td>
+      <td style="padding:6px; text-align:left;">${noParte}</td>
+      <td style="padding:6px; text-align:left; font-weight:bold;">${pieza.cantidad}</td>
+      <td style="padding:6px; text-align:center;">
+        <div class="lineMenu-piece-controls" style="display:inline-flex; gap:5px; margin:0;">
+          <input type="number" min="1" value="1" style="width:38px; text-align:center; font-size:0.95rem;">
+          <button data-accion="agregar" data-idx="${idx}" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0;">
+              <rect x="7" y="3" width="4" height="12" rx="2" fill="#fff"/>
+              <rect x="3" y="7" width="12" height="4" rx="2" fill="#fff"/>
+            </svg>
+          </button>
+          <button data-accion="eliminar" data-idx="${idx}" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0;">
+              <rect x="3" y="7" width="12" height="4" rx="2" fill="#fff"/>
+            </svg>
+          </button>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
     // Eventos de control
-    let controls = li.querySelector('.lineMenu-piece-controls');
+    let controls = tr.querySelector('.lineMenu-piece-controls');
     controls.querySelector('[data-accion="agregar"]').onclick = () => {
       let input = controls.querySelector('input[type="number"]');
       let val = parseInt(input.value);
       if (!isNaN(val) && val > 0) {
-  piezas[idx].cantidad += val;
-  setPiezasLinea(linea.toUpperCase(), piezas);
-  renderizarPiezas(linea.toUpperCase());
+        piezas[idx].cantidad += val;
+        setPiezasLinea(linea.toUpperCase(), piezas);
+        renderizarPiezas(linea.toUpperCase());
       }
     };
     controls.querySelector('[data-accion="eliminar"]').onclick = () => {
-  piezas[idx].cantidad = 0;
-  setPiezasLinea(linea.toUpperCase(), piezas);
-  renderizarPiezas(linea.toUpperCase());
+      let input = controls.querySelector('input[type="number"]');
+      let val = parseInt(input.value);
+      if (!isNaN(val) && val > 0) {
+        piezas[idx].cantidad = Math.max(0, piezas[idx].cantidad - val);
+        setPiezasLinea(linea.toUpperCase(), piezas);
+        renderizarPiezas(linea.toUpperCase());
+      }
     };
   });
+  tabla.appendChild(tbody);
+  listaPiezas.innerHTML = "";
+  listaPiezas.appendChild(tabla);
   // Ya no se permite añadir nuevas piezas manualmente
 }
 
