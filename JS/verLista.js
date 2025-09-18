@@ -88,10 +88,13 @@ window.renderizarListaGeneral = function renderizarListaGeneral() {
       let piezasLinea = JSON.parse(localStorage.getItem('piezas_' + linea)) || [];
       let piezaIdx = piezasLinea.findIndex(px => px.nombre.replace(/\s*\([^)]*\)/, '').trim() === p.nombre && (px.nombre.match(/\(([^)]+)\)/)?.[1] === p.numeroParte));
       if (piezaIdx !== -1) {
-        piezasLinea[piezaIdx].cantidad = 0;
-        localStorage.setItem('piezas_' + linea, JSON.stringify(piezasLinea));
-        window.renderizarListaGeneral();
-        if (typeof window.renderizarPiezas === 'function') window.renderizarPiezas(linea);
+        let val = parseInt(input.value);
+        if (!isNaN(val) && val > 0) {
+          piezasLinea[piezaIdx].cantidad = Math.max(0, piezasLinea[piezaIdx].cantidad - val);
+          localStorage.setItem('piezas_' + linea, JSON.stringify(piezasLinea));
+          window.renderizarListaGeneral();
+          if (typeof window.renderizarPiezas === 'function') window.renderizarPiezas(linea);
+        }
       }
     };
   });

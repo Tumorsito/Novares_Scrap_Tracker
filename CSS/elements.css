@@ -191,6 +191,7 @@
     text-shadow: 0 0 0.1em #000, 0 0 0.1em #000;
     margin: 0;
     text-transform: uppercase;
+    text-align: center;
 }
 
 /* >>> >>> >>> >>> >>> main menu buttons <<< <<< <<< <<< <<< */
