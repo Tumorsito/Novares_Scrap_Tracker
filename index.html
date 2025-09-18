@@ -73,8 +73,51 @@
 
                 <!-- Botones de navegación -->
                 <div class="lineMenu-buttons">
-                    <button class="button-structure button-skin" id="verListaBtn">VER LISTA</button>
-                    <button class="button-structure button-skin" id="volverBtn">VOLVER</button>
+                    <div style="display:flex; flex-direction:column; align-items:center; gap:6px; width:100%;">
+                        <button class="button-structure button-skin" id="verListaBtn">VER LISTA</button>
+                        <button class="button-structure button-skin" id="volverBtn">VOLVER</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- >>> >>> >>> >>> >>> LISTA GENERAL <<< <<< <<< <<< <<< -->
+            <div class="lineMenu-structure lineMenu-skin" id="listaGeneralMenu" style="display:none;">
+                <h2 class="lineMenu-title">LISTA GENERAL</h2>
+                <div class="lineMenu-list" style="width:100%; max-width:none;">
+                    <table style="width:100%; border-collapse:collapse; color:var(--fourth-color); background:transparent;">
+                        <thead>
+                            <tr style="background:rgba(255,255,255,0.08);">
+                                <th style="padding:8px; border-bottom:1px solid var(--fourth-color); text-align:left;">Nombre</th>
+                                <th style="padding:8px; border-bottom:1px solid var(--fourth-color); text-align:left;">No. Parte</th>
+                                <th style="padding:8px; border-bottom:1px solid var(--fourth-color); text-align:left;">Cantidad</th>
+                                <th style="padding:8px; border-bottom:1px solid var(--fourth-color); text-align:center;">Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:8px; text-align:left;">PIEZA DE EJEMPLO 1</td>
+                                <td style="padding:8px; text-align:left;">N1234</td>
+                                <td style="padding:8px; text-align:left;">5</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:8px; text-align:left;">PIEZA DE EJEMPLO 2</td>
+                                <td style="padding:8px; text-align:left;">V5678</td>
+                                <td style="padding:8px; text-align:left;">2</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:8px; text-align:left;">PIEZA DE EJEMPLO 3</td>
+                                <td style="padding:8px; text-align:left;">C1001</td>
+                                <td style="padding:8px; text-align:left;">8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="lineMenu-buttons" style="margin-top:20px;">
+                    <div style="display:flex; flex-direction:column; align-items:center; gap:6px; width:100%;">
+                        <button class="button-structure button-skin" id="exportarFotoBtn" style="height:3.2rem;">EXPORTAR COMO FOTO</button>
+                        <button class="button-structure button-skin" id="vaciarListaBtn">VACIAR LISTA</button>
+                        <button class="button-structure button-skin" id="volverListaBtn">VOLVER</button>
+                    </div>
                 </div>
             </div>
 
@@ -85,6 +128,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="JS/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="JS/verLista.js"></script>
 </body>
 
 </html>

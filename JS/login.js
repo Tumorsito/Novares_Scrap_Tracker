@@ -1,5 +1,5 @@
 // Inicializar ejemplos de piezas por línea si no existen
-const piezasEjemplo = {
+window.piezasEjemplo = {
   NUEVO: [
     { nombre: 'PIEZA A (N1234)', cantidad: 0 },
     { nombre: 'PIEZA B (N5678)', cantidad: 0 },
@@ -96,10 +96,26 @@ let volverBtn = document.getElementById('volverBtn');
 
 // Estado de piezas por línea (en localStorage)
 function getPiezasLinea(linea) {
-  return JSON.parse(localStorage.getItem('piezas_' + linea)) || [];
+  // Siempre devolver la lista completa de piezasEjemplo, sincronizando cantidades desde localStorage si existen
+  const key = linea.toUpperCase();
+  const ejemplo = piezasEjemplo[key] || [];
+  const guardadas = JSON.parse(localStorage.getItem('piezas_' + key)) || [];
+  // Sincronizar cantidades
+  return ejemplo.map(ej => {
+    const found = guardadas.find(g => g.nombre === ej.nombre);
+    return found ? { ...ej, cantidad: found.cantidad } : { ...ej };
+  });
 }
 function setPiezasLinea(linea, piezas) {
-  localStorage.setItem('piezas_' + linea, JSON.stringify(piezas));
+  // Solo guardar cantidades, nunca eliminar piezas
+  const key = linea.toUpperCase();
+  const ejemplo = piezasEjemplo[key] || [];
+  // Mantener el orden y nombres del ejemplo, solo actualizar cantidades
+  const piezasParaGuardar = ejemplo.map(ej => {
+    const found = piezas.find(p => p.nombre === ej.nombre);
+    return found ? { ...ej, cantidad: found.cantidad } : { ...ej };
+  });
+  localStorage.setItem('piezas_' + key, JSON.stringify(piezasParaGuardar));
 }
 
 // Mostrar menú principal
@@ -109,6 +125,12 @@ function mostrarMenuPrincipal() {
   // background.style.display = "";
   login.style.display = "";
   lineMenu.style.display = "none";
+  // Refrescar listas al mostrar menú principal
+  if (typeof window.renderizarListaGeneral === 'function') window.renderizarListaGeneral();
+  if (typeof window.renderizarPiezas === 'function') {
+    const linea = localStorage.getItem('lineaSeleccionada');
+    if (linea) window.renderizarPiezas(linea.toUpperCase());
+  }
 }
 
 // Mostrar submenú de línea
@@ -119,25 +141,39 @@ function mostrarMenuLinea(linea) {
   login.style.display = "none";
   lineMenu.style.display = "flex";
   lineaSeleccionadaTitulo.textContent = linea;
-  renderizarPiezas(linea);
+  renderizarPiezas(linea.toUpperCase());
+  // Refrescar lista general también
+  if (typeof window.renderizarListaGeneral === 'function') window.renderizarListaGeneral();
 }
 
 // Renderizar lista de piezas y contador
 function renderizarPiezas(linea) {
-  let piezas = getPiezasLinea(linea);
+  let piezas = getPiezasLinea(linea.toUpperCase());
   let total = piezas.reduce((acc, p) => acc + p.cantidad, 0);
   contadorPiezas.textContent = total;
   listaPiezas.innerHTML = "";
   piezas.forEach((pieza, idx) => {
     let li = document.createElement('li');
-    li.innerHTML = `
-      <span>${pieza.nombre}</span>
-      <div class="lineMenu-piece-controls">
-        <input type="number" min="1" value="1" style="width:45px; text-align:center; font-size:1rem;">
-        <button data-accion="agregar" data-idx="${idx}">AÑADIR</button>
-        <button data-accion="eliminar" data-idx="${idx}">ELIMINAR</button>
-      </div>
-    `;
+        li.innerHTML = `
+          <span>${pieza.nombre}</span>
+            <div style="display:inline-flex; align-items:center; gap:10px; float:right; margin:0;">
+              <span style="font-weight:bold; color:#fff; min-width:24px; text-align:center;">${pieza.cantidad}</span>
+              <div class="lineMenu-piece-controls" style="display:inline-flex; gap:5px; margin:0;">
+                <input type="number" min="1" value="1" style="width:45px; text-align:center; font-size:1rem;">
+                <button data-accion="agregar" data-idx="${idx}" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0;">
+                    <rect x="7" y="3" width="4" height="12" rx="2" fill="#fff"/>
+                    <rect x="3" y="7" width="12" height="4" rx="2" fill="#fff"/>
+                  </svg>
+                </button>
+                <button data-accion="eliminar" data-idx="${idx}" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0;">
+                    <rect x="3" y="7" width="12" height="4" rx="2" fill="#fff"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+        `;
     listaPiezas.appendChild(li);
     // Eventos de control
     let controls = li.querySelector('.lineMenu-piece-controls');
@@ -145,15 +181,15 @@ function renderizarPiezas(linea) {
       let input = controls.querySelector('input[type="number"]');
       let val = parseInt(input.value);
       if (!isNaN(val) && val > 0) {
-        piezas[idx].cantidad += val;
-        setPiezasLinea(linea, piezas);
-        renderizarPiezas(linea);
+  piezas[idx].cantidad += val;
+  setPiezasLinea(linea.toUpperCase(), piezas);
+  renderizarPiezas(linea.toUpperCase());
       }
     };
     controls.querySelector('[data-accion="eliminar"]').onclick = () => {
-      piezas.splice(idx, 1);
-      setPiezasLinea(linea, piezas);
-      renderizarPiezas(linea);
+  piezas[idx].cantidad = 0;
+  setPiezasLinea(linea.toUpperCase(), piezas);
+  renderizarPiezas(linea.toUpperCase());
     };
   });
   // Ya no se permite añadir nuevas piezas manualmente
@@ -178,7 +214,12 @@ if (volverBtn) {
 // Botón ver lista (puedes personalizar su función)
 if (verListaBtn) {
   verListaBtn.onclick = () => {
-    alert('Funcionalidad de "Ver lista" aún no implementada.');
+    // Refrescar ambas listas antes de mostrar la general
+    if (typeof window.renderizarListaGeneral === 'function') window.renderizarListaGeneral();
+    if (typeof window.renderizarPiezas === 'function') {
+      const linea = localStorage.getItem('lineaSeleccionada');
+      if (linea) window.renderizarPiezas(linea.toUpperCase());
+    }
   };
 }
 
