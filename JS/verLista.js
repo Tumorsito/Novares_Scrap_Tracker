@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
-      html2canvas(tabla, {backgroundColor: null}).then(canvas => {
+      html2canvas(tabla, {backgroundColor: '#000'}).then(canvas => {
         // Restaurar visibilidad
         ocultar.forEach(el => el.style.display = '');
         // Crear un enlace para descargar la imagen
