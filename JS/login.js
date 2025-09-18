@@ -1,3 +1,82 @@
+// Inicializar ejemplos de piezas por línea si no existen
+const piezasEjemplo = {
+  NUEVO: [
+    { nombre: 'PIEZA A (N1234)', cantidad: 0 },
+    { nombre: 'PIEZA B (N5678)', cantidad: 0 },
+    { nombre: 'PIEZA C (N9012)', cantidad: 0 },
+    { nombre: 'PIEZA D (N3456)', cantidad: 0 },
+    { nombre: 'PIEZA E (N7890)', cantidad: 0 },
+    { nombre: 'PIEZA F (N1122)', cantidad: 0 },
+    { nombre: 'PIEZA G (N3344)', cantidad: 0 },
+    { nombre: 'PIEZA H (N5566)', cantidad: 0 },
+    { nombre: 'PIEZA I (N7788)', cantidad: 0 },
+    { nombre: 'PIEZA J (N9900)', cantidad: 0 },
+    { nombre: 'PIEZA K (N2233)', cantidad: 0 },
+    { nombre: 'PIEZA L (N4455)', cantidad: 0 }
+  ],
+  VIEJO: [
+    { nombre: 'PIEZA C (V1234)', cantidad: 0 },
+    { nombre: 'PIEZA D (V5678)', cantidad: 0 },
+    { nombre: 'PIEZA E (V9012)', cantidad: 0 },
+    { nombre: 'PIEZA F (V3456)', cantidad: 0 },
+    { nombre: 'PIEZA G (V7890)', cantidad: 0 },
+    { nombre: 'PIEZA H (V1122)', cantidad: 0 },
+    { nombre: 'PIEZA I (V3344)', cantidad: 0 },
+    { nombre: 'PIEZA J (V5566)', cantidad: 0 },
+    { nombre: 'PIEZA K (V7788)', cantidad: 0 },
+    { nombre: 'PIEZA L (V9900)', cantidad: 0 },
+    { nombre: 'PIEZA M (V2233)', cantidad: 0 },
+    { nombre: 'PIEZA N (V4455)', cantidad: 0 }
+  ],
+  CONCHA: [
+    { nombre: 'CONCHA COMPLETA (44153.A)', cantidad: 0 },
+    { nombre: 'CONCHA (P25212)', cantidad: 0 },
+    { nombre: 'CONCHA B (C1001)', cantidad: 0 },
+    { nombre: 'CONCHA C (C1002)', cantidad: 0 },
+    { nombre: 'CONCHA D (C1003)', cantidad: 0 },
+    { nombre: 'CONCHA E (C1004)', cantidad: 0 },
+    { nombre: 'CONCHA F (C1005)', cantidad: 0 },
+    { nombre: 'CONCHA G (C1006)', cantidad: 0 },
+    { nombre: 'CONCHA H (C1007)', cantidad: 0 },
+    { nombre: 'CONCHA I (C1008)', cantidad: 0 },
+    { nombre: 'CONCHA J (C1009)', cantidad: 0 },
+    { nombre: 'CONCHA K (C1010)', cantidad: 0 }
+  ],
+  TAPÓN: [
+    { nombre: 'TAPÓN A (T1111)', cantidad: 0 },
+    { nombre: 'TAPÓN B (T2222)', cantidad: 0 },
+    { nombre: 'TAPÓN C (T3333)', cantidad: 0 },
+    { nombre: 'TAPÓN D (T4444)', cantidad: 0 },
+    { nombre: 'TAPÓN E (T5555)', cantidad: 0 },
+    { nombre: 'TAPÓN F (T6666)', cantidad: 0 },
+    { nombre: 'TAPÓN G (T7777)', cantidad: 0 },
+    { nombre: 'TAPÓN H (T8888)', cantidad: 0 },
+    { nombre: 'TAPÓN I (T9999)', cantidad: 0 },
+    { nombre: 'TAPÓN J (T0000)', cantidad: 0 },
+    { nombre: 'TAPÓN K (T1212)', cantidad: 0 },
+    { nombre: 'TAPÓN L (T3434)', cantidad: 0 }
+  ],
+  VASO: [
+    { nombre: 'VASO A (V1111)', cantidad: 0 },
+    { nombre: 'VASO B (V2222)', cantidad: 0 },
+    { nombre: 'VASO C (V3333)', cantidad: 0 },
+    { nombre: 'VASO D (V4444)', cantidad: 0 },
+    { nombre: 'VASO E (V5555)', cantidad: 0 },
+    { nombre: 'VASO F (V6666)', cantidad: 0 },
+    { nombre: 'VASO G (V7777)', cantidad: 0 },
+    { nombre: 'VASO H (V8888)', cantidad: 0 },
+    { nombre: 'VASO I (V9999)', cantidad: 0 },
+    { nombre: 'VASO J (V0000)', cantidad: 0 },
+    { nombre: 'VASO K (V1212)', cantidad: 0 },
+    { nombre: 'VASO L (V3434)', cantidad: 0 }
+  ]
+};
+
+Object.entries(piezasEjemplo).forEach(([linea, piezas]) => {
+  if (!localStorage.getItem('piezas_' + linea)) {
+    localStorage.setItem('piezas_' + linea, JSON.stringify(piezas));
+  }
+});
 //using gsap 3.11.4
 
 
