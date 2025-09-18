@@ -42,111 +42,40 @@
 
                 <!-- >>> >>> >>> >>> >>> novaresTitle <<< <<< <<< <<< <<< -->
                 <div class="novaresTitle-structure novaresTitle-skin"></div>
-                
-                <!-- >>> >>> >>> >>> >>> loginTitle <<< <<< <<< <<< <<< -->
-                <div class="loginTitle-structure loginTitle-skin">
-                    <h2>I</h2><h2>N</h2><h2>I</h2><h2>C</h2><h2>I</h2><h2>A</h2><h2>R</h2><h2>&nbsp;</h2><h2>S</h2><h2>E</h2><h2>S</h2><h2>I</h2><h2>Ó</h2><h2>N</h2>
+
+                <!-- >>> >>> >>> >>> >>> main menu title <<< <<< <<< <<< <<< -->
+                <div class="mainMenuTitle-structure mainMenuTitle-skin">
+                    <h2>Novares Scrap Tracker</h2>
                 </div>
 
-                <!-- >>> >>> >>> >>> >>> inputText <<< <<< <<< <<< <<< -->
-                <input placeholder="Nº Empleado" type="text" id="numEmpleado" name="username" class="inputText-structure inputText-skin" required>
-                    
-                <!-- >>> >>> >>> >>> >>> inputText <<< <<< <<< <<< <<< -->
-                <input placeholder="RFC" type="password" id="rfc" name="password" class="inputText-structure inputText-skin" required>
-
-                <!-- >>> >>> >>> >>> >>> button <<< <<< <<< <<< <<< -->
-                <button class="button-structure button-skin">Confirmar</button>
+                <!-- >>> >>> >>> >>> >>> main menu buttons <<< <<< <<< <<< <<< -->
+                <div class="mainMenuButtons-structure mainMenuButtons-skin">
+                    <button class="button-structure button-skin" data-linea="Nuevo">Nuevo</button>
+                    <button class="button-structure button-skin" data-linea="Viejo">Viejo</button>
+                    <button class="button-structure button-skin" data-linea="Concha">Concha</button>
+                    <button class="button-structure button-skin" data-linea="Tapón">Tapón</button>
+                    <button class="button-structure button-skin" data-linea="Vaso">Vaso</button>
+                </div>
                 
             </div>
 
-            <!-- >>> >>> >>> >>> >>> logged header <<< <<< <<< <<< <<< -->
-            <div class="header-structure header-skin">
 
-                <!-- >>> >>> >>> >>> >>> novaresTitle2 <<< <<< <<< <<< <<< -->
-                <div class="novaresTitle2-structure novaresTitle2-skin"></div>
+            <!-- >>> >>> >>> >>> >>> SUBMENÚ DE LÍNEA <<< <<< <<< <<< <<< -->
+            <div class="lineMenu-structure lineMenu-skin" style="display:none;">
+                <!-- Título de la línea seleccionada -->
+                <h2 class="lineMenu-title">LÍNEA: <span id="lineaSeleccionadaTitulo"></span></h2>
 
-                <!-- >>> >>> >>> >>> >>> employeeInfo <<< <<< <<< <<< <<< -->
-                <h2 class="employeeInfo-structure employeeInfo-skin">Leonel Rivera Hernandez: 181451</h2>
+                <!-- Contador total de piezas -->
+                <div class="lineMenu-counter">TOTAL PIEZAS: <span id="contadorPiezas">0</span></div>
 
-                <!-- >>> >>> >>> >>> >>> end session <<< <<< <<< <<< <<< <<< -->
-                <button class="endSession-structure endSession-skin">Cerrar Sesion</button>
+                <!-- Lista de piezas -->
+                <ul class="lineMenu-list" id="listaPiezas"></ul>
 
-            </div>
-
-            <!-- >>> >>> >>> >>> >>> logged article <<< <<< <<< <<< <<< -->
-            <div class="article-structure article-skin">
-
-                <!-- >>> >>> >>> >>> >>> background2 <<< <<< <<< <<< <<< -->
-                <video class="background2-structure background2-skin" autoplay muted loop>
-                    <source src="Media/homepage_bg_video.mp4" type="video/mp4">
-                </video>
-
-                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
-                <div class="nomina-structure nomina-skin">
-
-                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
-                    <div class="week-structure week-skin">Año: 2024 - Semana: 52</div>
-
-                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
-                    <button class="download-structure download-skin">Nomina_181451_W52.pdf</button>
-
+                <!-- Botones de navegación -->
+                <div class="lineMenu-buttons">
+                    <button class="button-structure button-skin" id="verListaBtn">VER LISTA</button>
+                    <button class="button-structure button-skin" id="volverBtn">VOLVER</button>
                 </div>
-
-                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
-                <div class="nomina-structure nomina-skin">
-
-                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
-                    <div class="week-structure week-skin">Año: 2024 - Semana: 51</div>
-
-                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
-                    <button class="download-structure download-skin">Nomina_181451_W51.pdf</button>
-
-                </div>
-
-                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
-                <div class="nomina-structure nomina-skin">
-
-                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
-                    <div class="week-structure week-skin">Año: 2024 - Semana: 50</div>
-
-                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
-                    <button class="download-structure download-skin">Nomina_181451_W50.pdf</button>
-
-                </div>
-
-                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
-                <div class="nomina-structure nomina-skin">
-
-                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
-                    <div class="week-structure week-skin">Año: 2024 - Semana: 49</div>
-
-                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
-                    <button class="download-structure download-skin">Nomina_181451_W49.pdf</button>
-
-                </div>
-
-                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
-                <div class="nomina-structure nomina-skin">
-
-                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
-                    <div class="week-structure week-skin">Año: 2024 - Semana: 48</div>
-
-                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
-                    <button class="download-structure download-skin">Nomina_181451_W48.pdf</button>
-
-                </div>
-
-                <!-- >>> >>> >>> >>> >>> nomina <<< <<< <<< <<< <<< -->
-                <div class="nomina-structure nomina-skin">
-
-                    <!-- >>> >>> >>> >>> >>> week <<< <<< <<< <<< <<< -->
-                    <div class="week-structure week-skin">Año: 2024 - Semana: 47</div>
-
-                    <!-- >>> >>> >>> >>> >>> download <<< <<< <<< <<< <<< -->
-                    <button class="download-structure download-skin">Nomina_181451_W47.pdf</button>
-
-                </div>
-
             </div>
 
         </div>

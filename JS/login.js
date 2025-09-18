@@ -1,60 +1,121 @@
 //using gsap 3.11.4
 
-/* >>> >>> >>> >>> >>> Declaracion de las variables <<< <<< <<< <<< <<< */
-let buttons = document.querySelectorAll(".button-skin");
-let inputs = document.querySelectorAll(".inputText-skin");
-let loginTitle = document.querySelector(".loginTitle-skin");
+
+// Variables para el nuevo menú principal
+
 let novaresTitle = document.querySelector(".novaresTitle-skin");
-let novaresTitle2 = document.querySelector(".novaresTitle2-skin");
+let mainMenuButtons = document.querySelectorAll('.mainMenuButtons-skin .button-structure');
 let background = document.querySelector(".background-skin");
 let login = document.querySelector(".login-skin");
 let bodyContainer = document.querySelector(".bodyContainer-skin");
-let header = document.querySelector(".header-skin");
-let article = document.querySelector(".article-skin");
-let downloads = document.querySelectorAll(".download-skin");
-let endSession = document.querySelector(".endSession-skin");
+let lineMenu = document.querySelector('.lineMenu-structure');
+let lineaSeleccionadaTitulo = document.getElementById('lineaSeleccionadaTitulo');
+let contadorPiezas = document.getElementById('contadorPiezas');
+let listaPiezas = document.getElementById('listaPiezas');
+let verListaBtn = document.getElementById('verListaBtn');
+let volverBtn = document.getElementById('volverBtn');
 
-let button = document.querySelector(".button-skin");
-let numEmpleado = document.getElementById("numEmpleado");
-let rfc = document.getElementById("rfc");
-
-let showLogin = true;
-
-/* >>> >>> >>> >>> >>> Verificar si esta iniciada la sesion <<< <<< <<< <<< <<< */
-if (localStorage.getItem("login") === "true") {
-  showLogin = false;
+// Estado de piezas por línea (en localStorage)
+function getPiezasLinea(linea) {
+  return JSON.parse(localStorage.getItem('piezas_' + linea)) || [];
+}
+function setPiezasLinea(linea, piezas) {
+  localStorage.setItem('piezas_' + linea, JSON.stringify(piezas));
 }
 
-if (showLogin === false) {
-  background.style.display = "none";
+// Mostrar menú principal
+
+function mostrarMenuPrincipal() {
+  // El video de fondo siempre debe mostrarse
+  // background.style.display = "";
+  login.style.display = "";
+  lineMenu.style.display = "none";
+}
+
+// Mostrar submenú de línea
+
+function mostrarMenuLinea(linea) {
+  // El video de fondo siempre debe mostrarse
+  // background.style.display = "none";
   login.style.display = "none";
-
-  bodyContainer.style.display = "flex";
-  bodyContainer.style.justifyContent = "space-between";
-  bodyContainer.style.alignItems = "center";
-  bodyContainer.style.flexDirection = "column";
-
-
-  header.style.display = "flex";
-  article.style.display = "flex";
+  lineMenu.style.display = "flex";
+  lineaSeleccionadaTitulo.textContent = linea;
+  renderizarPiezas(linea);
 }
 
-/* >>> >>> >>> >>> >>> novaresTitle redireccion en nueva ventana <<< <<< <<< <<< <<< */
+// Renderizar lista de piezas y contador
+function renderizarPiezas(linea) {
+  let piezas = getPiezasLinea(linea);
+  let total = piezas.reduce((acc, p) => acc + p.cantidad, 0);
+  contadorPiezas.textContent = total;
+  listaPiezas.innerHTML = "";
+  piezas.forEach((pieza, idx) => {
+    let li = document.createElement('li');
+    li.innerHTML = `
+      <span>${pieza.nombre}</span>
+      <div class="lineMenu-piece-controls">
+        <input type="number" min="1" value="1" style="width:45px; text-align:center; font-size:1rem;">
+        <button data-accion="agregar" data-idx="${idx}">AÑADIR</button>
+        <button data-accion="eliminar" data-idx="${idx}">ELIMINAR</button>
+      </div>
+    `;
+    listaPiezas.appendChild(li);
+    // Eventos de control
+    let controls = li.querySelector('.lineMenu-piece-controls');
+    controls.querySelector('[data-accion="agregar"]').onclick = () => {
+      let input = controls.querySelector('input[type="number"]');
+      let val = parseInt(input.value);
+      if (!isNaN(val) && val > 0) {
+        piezas[idx].cantidad += val;
+        setPiezasLinea(linea, piezas);
+        renderizarPiezas(linea);
+      }
+    };
+    controls.querySelector('[data-accion="eliminar"]').onclick = () => {
+      piezas.splice(idx, 1);
+      setPiezasLinea(linea, piezas);
+      renderizarPiezas(linea);
+    };
+  });
+  // Ya no se permite añadir nuevas piezas manualmente
+}
+
+// Evento para seleccionar línea y mostrar submenú
+mainMenuButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const linea = btn.getAttribute('data-linea').toUpperCase();
+    localStorage.setItem('lineaSeleccionada', linea);
+    mostrarMenuLinea(linea);
+  });
+});
+
+// Botón volver
+if (volverBtn) {
+  volverBtn.onclick = () => {
+    mostrarMenuPrincipal();
+  };
+}
+
+// Botón ver lista (puedes personalizar su función)
+if (verListaBtn) {
+  verListaBtn.onclick = () => {
+    alert('Funcionalidad de "Ver lista" aún no implementada.');
+  };
+}
+
+
+// >>> >>> >>> >>> >>> novaresTitle redireccion en nueva ventana <<< <<< <<< <<< <<<
 novaresTitle.addEventListener("click", () => {
   window.open("https://www.novaresteam.com/", "_blank");
 });
 
-novaresTitle2.addEventListener("click", () => {
-  window.open("https://www.novaresteam.com/", "_blank");
-})
 
 
-/* >>> >>> >>> >>> >>> Animacion de los botones <<< <<< <<< <<< <<< */
-buttons.forEach(button => {
+// Animación de los botones del menú principal
+mainMenuButtons.forEach(button => {
   button.addEventListener("mouseover", () => {
     gsap.to(button, { duration: 0.3, backgroundColor: "#ffffff", color: "#000000", boxShadow: "#ffffff 0px 0px 10px 0px" });
   });
-
   button.addEventListener("mouseout", () => {
     gsap.to(button, { duration: 0.3, backgroundColor: "#000000", color: "#ffffff", boxShadow: "none" });
   });
@@ -71,73 +132,23 @@ downloads.forEach(download => {
   });
 });
 
-/* >>> >>> >>> >>> >>> Animacion de los inputs <<< <<< <<< <<< <<< */
-inputs.forEach(input => {
-  input.addEventListener("mouseover", () => {
-    gsap.to(input, { duration: 0.3, boxShadow: "#ffffff 0px 0px 10px 0px" });
+
+// (Inputs eliminados, no se requiere animación)
+
+
+// (LoginTitle eliminado, no se requiere animación)
+
+
+// (Login eliminado, no se requiere petición)
+
+
+// Cerrar sesión (mantener funcionalidad si se usa en el siguiente menú)
+if (endSession) {
+  endSession.addEventListener("click", () => {
+    localStorage.setItem("login", "false");
+    window.location.reload();
   });
-
-  input.addEventListener("mouseout", () => {
-    gsap.to(input, { duration: 0.3, boxShadow: "none" });
-  });
-
-  input.addEventListener("focus", () => {
-    gsap.to(input, { duration: 0.3, backgroundColor: "#ffffff", color: "#000000" });
-    document.documentElement.style.setProperty('--selection-color', '#ffffff');
-    document.documentElement.style.setProperty('--selection-background', '#000000');
-  });
-
-  input.addEventListener("blur", () => {
-    gsap.to(input, { duration: 0.3, backgroundColor: "#000000", color: "#ffffff" });
-    document.documentElement.style.setProperty('--selection-color', '#000000');
-    document.documentElement.style.setProperty('--selection-background', '#ffffff');
-  });
-
-});
-
-/* >>> >>> >>> >>> >>> Animacion de todos los h2 de LoginTitleH2 <<< <<< <<< <<< <<< */ 
-    let loginTitleH2 = loginTitle.querySelectorAll('h2');
-
-    loginTitleH2.forEach(loginTitleH2 => {
-        loginTitleH2.addEventListener("mouseover", () => {
-            gsap.to(loginTitleH2, { duration: 0.2, color: "#000000", textShadow: "0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff, 0 0 0.1em #fff" });
-        });
-    
-        loginTitleH2.addEventListener("mouseout", () => { 
-            gsap.to(loginTitleH2, { duration: 0.2, color: "#ffffff", textShadow: "0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000, 0 0 0.1em #000" });
-        });
-    });
-
-/* >>> >>> >>> >>> >>> Peticion post para inicio de sesion <<< <<< <<< <<< <<< */
-
-button.addEventListener("click", () => {
-  axios.post("back.php", new URLSearchParams({
-    numEmpleado: numEmpleado.value,
-    rfc: rfc.value
-  })).then((response) => {
-    if (response.data === true) {
-      localStorage.setItem("numEmpleado", numEmpleado.value);
-      localStorage.setItem("rfc", rfc.value);
-      localStorage.setItem("login", "true");
-      console.log("Se inicio sesion");
-      window.location.reload();
-    }
-    else if (response.data === false) {
-      alert("Usuario o contraseña incorrectos");
-    }
-    else {
-      console.log("Ocurrio un error de peticion");
-    }
-  }).catch((error) => {
-    console.log("Ocurrio un error de axios");
-  })
-});
-
-/* >>> >>> >>> >>> >>> Cerrar sesion <<< <<< <<< <<< <<< */
-endSession.addEventListener("click", () => {
-  localStorage.setItem("login", "false");
-  window.location.reload();
-});
+}
 
 /* >>> >>> >>> >>> >>> Preloader <<< <<< <<< <<< <<< */
 let preloader = document.getElementById('preloader-container');
