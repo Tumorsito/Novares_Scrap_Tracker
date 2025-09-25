@@ -46,6 +46,7 @@ window.renderizarListaGeneral = function renderizarListaGeneral() {
       <td style="padding:8px; text-align:left;">${p.nombre}</td>
       <td style="padding:8px; text-align:left;">${p.numeroParte}</td>
       <td style="padding:8px; text-align:left; font-weight:bold; color:#fff; min-width:24px;">${p.cantidad}</td>
+      <td style="padding:8px; text-align:left;">${p.linea}</td>
       <td style="padding:8px; text-align:center;">
         <div class="lineMenu-piece-controls" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; margin:0;">
           <input type="number" min="1" value="1" style="width:45px; text-align:center; font-size:1rem; border-radius:8px; border:2px solid #fff; background:#000; color:#fff;">
@@ -64,6 +65,7 @@ window.renderizarListaGeneral = function renderizarListaGeneral() {
       </td>
     `;
     tbody.appendChild(tr);
+
     // Eventos de control
     const controls = tr.querySelector('.lineMenu-piece-controls');
     const input = controls.querySelector('input[type="number"]');

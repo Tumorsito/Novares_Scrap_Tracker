@@ -1,105 +1,18 @@
-// Inicializar ejemplos de piezas por línea si no existen
-window.piezasEjemplo = {
-  NUEVO: [
-    { nombre: 'LABEL ROLL (LABEL00051)', cantidad: 0 },
-    { nombre: 'SPLIT INSERT - LIMITER (CS48175.A)', cantidad: 0 },
-    { nombre: 'ROLL RIBBON (INKTHERM00107)', cantidad: 0 },
-    { nombre: 'O-RING FORD BC3Q-8527-CA (CS44105.A)', cantidad: 0 },
-    { nombre: 'PIP SEAL FORD # BC3Q-6A632-AA (CS3539.A)', cantidad: 0 },
-    { nombre: 'CHECK BULLET (P45194N.A)', cantidad: 0 },
-    { nombre: 'O-RING PRECIX AS568B-023 (CS44106.A)', cantidad: 0 },
-    { nombre: 'COVER, 3MVIC GREY COMPONENT (P63145A.A)', cantidad: 0 },
-    { nombre: 'GARTRIDGE HOUSING 3MVIC2 GREEN CO (P63147A.A)', cantidad: 0 },
-    { nombre: 'STEM MVIC 2 (P63146A.A)', cantidad: 0 },
-    { nombre: 'SEPARATOR FLEECE MAIN (COMP11-00064A0)', cantidad: 0 },
-    { nombre: 'SPRING MVIC2 (CS72189.A)', cantidad: 0 },
-    { nombre: 'SPRING DIAPHRAGM (CS72190.A)', cantidad: 0 },
-    { nombre: 'CAP DIAPHRAGM (P63148A.A)', cantidad: 0 },
-    { nombre: 'CONVOLUTED TUBE (CS44107.E)', cantidad: 0 },
-    { nombre: 'QUICK CONNECT HOUSING (P52199A.A)', cantidad: 0 },
-    { nombre: 'Q/C O-RING #122 RED TFLN COAT (CS48190.A)', cantidad: 0 },
-    { nombre: 'Q/C PERMANENT LOCKING RING (P53100A.D)', cantidad: 0 },
-    { nombre: 'HEAT SHIELD, MY23 OIL SEPARATOR (CS74167.BB)', cantidad: 0 },
-    { nombre: 'DIAPHRAGM, OIL SEPARATOR, 6.7L (CS74196.BB)', cantidad: 0 },
-    { nombre: 'SNS ASY CRKC VEN TUB PRESS (ELEAF-01070A0)', cantidad: 0 },
-    { nombre: 'M6 SELF TAPPING (W506857)', cantidad: 0 },
-    { nombre: 'MAIN HOUSING BASE OIL SEPARATOR (SF-001650.B)', cantidad: 0 },
-    { nombre: 'HOUSING TOP COVER OIL SEPARATOR (SF-001651.B)', cantidad: 0 },
-    { nombre: 'MATRIX LBL SC3Q-6A785-AB (SF-002256)', cantidad: 0 },
-    { nombre: 'FORD RETURNABLE GAYLORD, 48X45X34 IN (SB43 M536L)', cantidad: 0 },
-    { nombre: 'FORD RETURNABLE PAD 44X41X0.197 (CS7967.A)', cantidad: 0 },
-    { nombre: 'BAG 52X44X96 IN BLACK (CS1928)', cantidad: 0 },
-    { nombre: 'SEPARATOR FLEECE STEM (COMP11-00066A0)', cantidad: 0 }
-  ],
-  VIEJO: [
-    { nombre: 'LABEL 24 X 35 23700/ROLL (CS19103.REL)', cantidad: 0 },
-    { nombre: 'HOUSING-OIL SEPARATOR (P39155A.P)', cantidad: 0 },
-    { nombre: '6.7L OIL SEPARATOR SUB-ASSEMBLY (SA4291.B)', cantidad: 0 },
-    { nombre: 'COVER-DIAPHRAGM (P39158A.D)', cantidad: 0 },
-    { nombre: '1476 FT ROLL RIBBON 135849 (CS26185.REL)', cantidad: 0 },
-    { nombre: 'UPPER COVER-OIL SEPARATOR (P39156A.F)', cantidad: 0 },
-    { nombre: 'LBL BC3Q-6A785-EE AW473 (SA3697.B)', cantidad: 0 },
-    { nombre: 'LOWER COVER-OIL SEPARATOR (P39157A.H)', cantidad: 0 },
-    { nombre: 'SPLIT INSERT - LIMITER (CS48175.A)', cantidad: 0 },
-    { nombre: 'HOUSING-CYCLONE (P39159A.E)', cantidad: 0 },
-    { nombre: 'SPRING-DIAPHRAGM (CS44103.A)', cantidad: 0 },
-    { nombre: 'COVER-CYCLONE HOUSING (P39160A.F)', cantidad: 0 },
-    { nombre: 'DIAPHRAGM (VALD84-01041A0)', cantidad: 0 },
-    { nombre: 'DRAIN PLATE (CS44104.C)', cantidad: 0 },
-    { nombre: 'PIP SEAL FORD # BC3Q-6A632-AA (CS3539.A)', cantidad: 0 },
-    { nombre: 'O-RING FORD BC3Q-8527-CA (CS44105.A)', cantidad: 0 },
-    { nombre: 'ADAPTOR BODY (P39161A.B)', cantidad: 0 },
-    { nombre: 'Q/C LOCK RING (P4262GY-APS.D)', cantidad: 0 },
-    { nombre: 'PORT SENSOR - STANDEX (CS40194.D)', cantidad: 0 },
-    { nombre: 'O-RING PRECIX AS568B-023 (CS44106.A)', cantidad: 0 },
-    { nombre: 'Q/C O-RING RETAINER (P35170A.C)', cantidad: 0 },
-    { nombre: 'CONVOLUTED TUBE (CS44107.E)', cantidad: 0 },
-    { nombre: 'Q/C O-RING #122 RED TFLN COAT (CS48190.A)', cantidad: 0 },
-    { nombre: 'CARTON RSC 45X42X27 IN (CS2920.REL)', cantidad: 0 },
-    { nombre: 'PAD 44X41 IN - WITH NOMAR (CS4920.REL)', cantidad: 0 },
-    { nombre: 'PALLET 48X45X5 IN HEAT TREATED (CS5907.REL)', cantidad: 0 },
-    { nombre: 'BAG 52X44X96 IN BLACK (CS1928)', cantidad: 0 }
-  ],
-  CONCHA: [
-    { nombre: 'PCV VALVE RETAINER (P30109A-MPC.B)', cantidad: 0 },
-    { nombre: 'GREEN LABEL 24 X 35 (CS19103-4.A)', cantidad: 0 },
-    { nombre: 'STRAIGHT CVT TUBE (CS60127.A)', cantidad: 0 },
-    { nombre: 'OIL SEPARATOR WELDED-SUB ASSY (SA4032.B)', cantidad: 0 },
-    { nombre: 'COVER-OIL SEPARATOR (P45187A.E)', cantidad: 0 },
-    { nombre: '1476 FT ROLL RIBBON 135849 (CS266185.REL)', cantidad: 0 },
-    { nombre: 'AISAN PCV VALVE (CS33186.REL)', cantidad: 0 },
-    { nombre: 'O-RING (CS33183.B)', cantidad: 0 },
-    { nombre: '.125 IMPACTOR PAD (CS51128.B)', cantidad: 0 },
-    { nombre: 'FORMED CVT TUBE (989100.A)', cantidad: 0 },
-    { nombre: 'GASKET GC1E-6B752-AA (CS3571.A)', cantidad: 0 },
-    { nombre: 'COVER PLATE - OIL SEPARATOR (P45188A.B)', cantidad: 0 },
-    { nombre: '1/2 X 1/2 QUICK CONNECT 90 DEG (CS46121.A)', cantidad: 0 },
-    { nombre: 'COMPRESSION LIMITER (CS36161.MP)', cantidad: 0 },
-    { nombre: 'CHECK BULLET (P45194N.A)', cantidad: 0 },
-    { nombre: 'LBL LX6E-6A785-AA AW473 BARCODE (SA4068.A)', cantidad: 0 },
-    { nombre: 'INTERNAL RETURNABLE TOTE, 24X20X12 (INT242012)', cantidad: 0 },
-    { nombre: 'TUBE ASSEMBLY (H21645.A)', cantidad: 0 },
-    { nombre: 'BAG, 25X15X30 IN. (CS952)', cantidad: 0 },
-    { nombre: 'FORD RETURNABLE TOTE 24X15X7.5 (ST50 M536L)', cantidad: 0 },
-    { nombre: 'BAG, 25X15X30 IN. (CS952)', cantidad: 0 },
-    { nombre: 'FORD RETURNABLE LID 49X46X2 (SL19 M536L)', cantidad: 0 },
-    { nombre: 'FORD RETURNABLE PALLET 48.5X46X6 (SP19 M536L)', cantidad: 0 }
-  ],
-  TAPÓN: [
-    { nombre: 'OIL CAP (P33124A-MPC.C)', cantidad: 0 },
-    { nombre: 'OIL CAP SEAL (CS36186.A)', cantidad: 0 }
-  ],
-  VASO: [
-    { nombre: '??? (???)', cantidad: 0 },
-    { nombre: '??? (???)', cantidad: 0 }
-  ]
-};
+// Cargar datos de piezas desde un archivo JSON externo
+fetch('JS/piezasEjemplo.json')
+  .then(response => response.json())
+  .then(data => {
+    window.piezasEjemplo = data;
 
-Object.entries(piezasEjemplo).forEach(([linea, piezas]) => {
-  if (!localStorage.getItem('piezas_' + linea)) {
-    localStorage.setItem('piezas_' + linea, JSON.stringify(piezas));
-  }
-});
+    // Inicializar datos en localStorage si no existen
+    Object.entries(window.piezasEjemplo).forEach(([linea, piezas]) => {
+      if (!localStorage.getItem('piezas_' + linea)) {
+        localStorage.setItem('piezas_' + linea, JSON.stringify(piezas));
+      }
+    });
+  })
+  .catch(error => console.error('Error al cargar piezasEjemplo:', error));
+
 //using gsap 3.11.4
 
 
@@ -192,7 +105,6 @@ function renderizarPiezas(linea) {
   tabla.appendChild(thead);
   let tbody = document.createElement('tbody');
   piezas.forEach((pieza, idx) => {
-    // Separar nombre y no. parte
     let nombre = pieza.nombre;
     let noParte = '';
     let match = nombre.match(/\(([^)]+)\)$/);
@@ -223,6 +135,7 @@ function renderizarPiezas(linea) {
       </td>
     `;
     tbody.appendChild(tr);
+
     // Eventos de control
     let controls = tr.querySelector('.lineMenu-piece-controls');
     controls.querySelector('[data-accion="agregar"]').onclick = () => {
